@@ -22,7 +22,6 @@ app.use("/api/customers", customer);
 app.use("/api/movies", movie);
 app.use("/api/rental", rental);
 
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
