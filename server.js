@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const genres = require('./routes/genre');
 const customer = require('./routes/customer');
 const movie =require('./routes/movies')
+const rental=require('./routes/rental')
 
 const app = express();
 const port = 3000;
@@ -19,6 +20,7 @@ app.use(express.urlencoded())
 app.use("/api/genres", genres);
 app.use("/api/customers", customer);
 app.use("/api/movies", movie);
+app.use("/api/rental", rental);
 
 
 app.listen(port, () => {
