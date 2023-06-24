@@ -5,6 +5,7 @@ const genres = require('./routes/genre');
 const customer = require('./routes/customer');
 const movie =require('./routes/movies')
 const rental=require('./routes/rental')
+const users=require('./routes/user')
 
 const app = express();
 const port = 3000;
@@ -21,6 +22,8 @@ app.use("/api/genres", genres);
 app.use("/api/customers", customer);
 app.use("/api/movies", movie);
 app.use("/api/rental", rental);
+app.use("/api/user", users);
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
