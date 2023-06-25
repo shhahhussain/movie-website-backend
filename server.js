@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const config =require("config")
 
 const genres = require('./routes/genre');
 const customer = require('./routes/customer');
@@ -30,8 +31,6 @@ app.use("/api/movies", movie);
 app.use("/api/rental", rental);
 app.use("/api/user", users);
 app.use("/api/auth", auth);
-
-
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
