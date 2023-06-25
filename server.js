@@ -6,9 +6,15 @@ const customer = require('./routes/customer');
 const movie =require('./routes/movies')
 const rental=require('./routes/rental')
 const users=require('./routes/user')
+const auth=require('./routes/auth')
 
 const app = express();
 const port = 3000;
+
+if(!config.get('jwtPrivateKey')){
+  console.error('FATAL ERROR :jwtPrivateKeyis not defined');
+  process.exit(1);
+}
 
 mongoose.connect('mongodb://127.0.0.1/vidly')
   .then(() => {
@@ -23,6 +29,8 @@ app.use("/api/customers", customer);
 app.use("/api/movies", movie);
 app.use("/api/rental", rental);
 app.use("/api/user", users);
+app.use("/api/auth", auth);
+
 
 
 app.listen(port, () => {
