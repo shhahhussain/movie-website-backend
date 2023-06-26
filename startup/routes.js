@@ -7,8 +7,7 @@ const rental = require('../routes/rental');
 const users = require('../routes/user');
 const auth = require('../routes/auth');
 
-module.exports = function () {
-  const app = express();
+module.exports = function (app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use("/api/genres", genres);

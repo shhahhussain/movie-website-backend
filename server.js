@@ -1,15 +1,18 @@
 const express = require("express");
 const app = express();
+const winston = require("winston");
 
-const winston = require('winston');
-
-require('./startup/routes')(app);
-require('./startup/db');
-require('./startup/logging')();
-require('./startup/config')();
+const configureLogging = require("./startup/logging");
+const connectToDatabase = require("./startup/db");
+const setupRoutes = require("./startup/routes");
+require("./startup/config")();
 
 const port = 3000;
 
+configureLogging();
+connectToDatabase();
+setupRoutes(app);
+
 app.listen(port, () => {
-  winston.info(`Server is running on port ${port}`);
+    winston.info(`Server is running on port ${port}`);
 });
